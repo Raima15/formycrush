@@ -1,0 +1,93 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Fete Date Invitation
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Koulen&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   body {
+            background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+            font-family: 'Koulen', cursive;
+        }
+        .doodle {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            opacity: 0.5;
+        }
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #D91656;
+            animation: fall 2s infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-100vh); }
+            100% { transform: translateY(100vh); }
+        }
+  </style>
+ </head>
+ <body class="flex items-center justify-center min-h-screen">
+  <div class="text-center">
+   <h1 class="text-white text-4xl md:text-6xl font-bold">
+    Will you go to the fete with me?
+   </h1>
+   <div class="mt-8">
+    <button class="px-6 py-3 bg-pink-500 text-white text-lg rounded-full hover:bg-pink-600 transition duration-300" id="yesBtn">
+     Yes
+    </button>
+    <button class="px-6 py-3 bg-blue-500 text-white text-lg rounded-full hover:bg-blue-600 transition duration-300 ml-4" id="noBtn">
+     No
+    </button>
+   </div>
+   <p class="text-white text-lg md:text-xl mt-4" id="message">
+   </p>
+  </div>
+  <!-- Doodles -->
+  <img alt="Cute doodle" class="doodle" height="100" src="https://storage.googleapis.com/a1aa/image/3UwcV5jmdTJMONNAq9mWPY1uhltK8WkWLI1qxvorLQVtH2AF.jpg" style="top: 10%; left: 10%;" width="100"/>
+  <img alt="Cute doodle" class="doodle" height="100" src="https://storage.googleapis.com/a1aa/image/3UwcV5jmdTJMONNAq9mWPY1uhltK8WkWLI1qxvorLQVtH2AF.jpg" style="top: 20%; right: 10%;" width="100"/>
+  <img alt="Cute doodle" class="doodle" height="100" src="https://storage.googleapis.com/a1aa/image/3UwcV5jmdTJMONNAq9mWPY1uhltK8WkWLI1qxvorLQVtH2AF.jpg" style="bottom: 10%; left: 20%;" width="100"/>
+  <img alt="Cute doodle" class="doodle" height="100" src="https://storage.googleapis.com/a1aa/image/3UwcV5jmdTJMONNAq9mWPY1uhltK8WkWLI1qxvorLQVtH2AF.jpg" style="bottom: 20%; right: 20%;" width="100"/>
+  <script>
+   const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const message = document.getElementById('message');
+        let noClickCount = 0;
+
+        yesBtn.addEventListener('click', () => {
+            message.textContent = "Yay! meee loveee yuhhhhhhh! mawwhhh";
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
+                document.body.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 5000);
+              }
+               setTimeout(() => {
+                   window.location.href = "https://youtu.be/cPkE0IbDVs4?t=66";
+               }, 5000);
+           });
+
+        noBtn.addEventListener('click', () => {
+            noClickCount++;
+            if (noClickCount < 3) {
+                message.textContent = ":( tussi naa mat bolo ji";
+            } else if (noClickCount === 3) {
+                message.textContent = "Annway say yes!!! because me your baby girl!";
+                noBtn.style.position = 'absolute';
+                noBtn.style.top = Math.random() * 80 + 'vh';
+                noBtn.style.left = Math.random() * 80 + 'vw';
+            } else if (noClickCount === 4) {
+                window.location.href = "https://youtu.be/PIh2xe4jnpk?t=31";
+            }
+        });
+  </script>
+ </body>
+</html>
